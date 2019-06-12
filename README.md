@@ -17,6 +17,7 @@ Model Optimizer Custom Layer Extensions are located in this directory tree:
 
 
 There are 2 subdirectories:
+
   front:
     Python scripts that are used for extracting layer attributes are located here. 
     The scripts are organized into subdirectories for different frameworks: Caffe, TensorFlow, MXNet, ONNX.
@@ -27,7 +28,7 @@ There are 2 subdirectories:
 
 # Example Custom Layer: The ArgMax Function
 
-We will showcase the steps involved for implementing a custom layer using the *argmax* (arguments of the maxima) function.  The *argmax* function is mathematically calculated as:
+We will showcase the steps involved for implementing a custom layer using the *argmax* (arguments of the maxima) function.  The equation for *argmax* is:
 
 ![](pics/argmax.png)
 
