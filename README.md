@@ -29,7 +29,7 @@ There are 2 subdirectories:
 
 We will showcase the steps involved for implementing a custom layer using the *argmax* (arguments of the maxima) function.  The *argmax* function is mathematically calculated as:
 
-![](../pics/argmax.png)
+![](pics/argmax.png)
 
 Argmax is a layer used in some Deep Learning models.  It calculates the input value that delivers the maximum output of a function.
 
