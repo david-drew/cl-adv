@@ -71,30 +71,33 @@ The first things we need to do are to create a place for the tutorial and then d
     ```
 2. Download the tutorial by cloning the repository:
     ```bash
-    git clone https://github.com/david-drew/OpenVINO-Custom-Layers-Advanced.git
+    git clone https://github.com/david-drew/cl-adv.git
     ```
 3. Create some environment variables as shorter, more convenient names to the directories that will be used often:
     ```bash
-    export CLWS=~/cl_tutorial
-    export CLT=$CLWS/OpenVINO-Custom-Layers-Advanced/2019.r1.1
+    export CLWS=~/cl_adv_tutorial
+    export CLT=$CLWS/2019.r1.1
 
     From here, we will now use "$CLWS" to reference the "cl_tutorial" workspace directory and "$CLT" to reference the directory containing the files for this tutorial.
     ```
 
-## Create the Example TensorFlow Model (Weights, Graphs, Checkpoints):
+## Download the Example Segmentation Model:
 
-We will use the supplied *build_cosh_model.py* script to create a simple TensorFlow model that contains the *cosh* custom layer to use with this tutorial.  The weights are random and untrained, but sufficient for demonstrating a simple custom layer implementation.  To create the model and store it in the "$CLWS/tf_model" directory, run the commands:
+We'll download a segmentation model, then later we'll convert the model to an Intel-compatible format.
 
    ```bash
-mkdir $CLWS/tf_model
-$CLT/../create_tf_model/build_cosh_model.py $CLWS/tf_model
-   ```
-On success, the output will appear similar to:
-   ```
-Model saved in path: /home/<user>/cl_tutorial/tf_model/model.ckpt
+    mkdir $CLWS/maskrcnn
+    cd $CLWS/maskrcnn
+    https://github.com/matterport/Mask_RCNN/releases
+    wget https://github.com/matterport/Mask_RCNN/releases/download/v2.1/balloon_dataset.zip
+    wget https://github.com/matterport/Mask_RCNN/releases/download/v2.1/mask_rcnn_balloon.h5
+    wget https://github.com/matterport/Mask_RCNN/archive/v2.1.tar.gz
+
    ```
 
 # Creating the *argmax* Custom Layer
+
+
 
 ## Generate the Extension Template Files Using the Model Extension Generator
 
@@ -155,6 +158,7 @@ Do you want to change any answer (y/n) ? Default 'no'
 
 [Custom Layers Support in Inference Engine](https://software.intel.com/en-us/articles/OpenVINO-Custom-Layers-Support-in-Inference-Engine)
 
+[Mask R-CNN by Kaiming He, Georgia Gkioxari, Piotr Dollár, Ross Girshick](https://arxiv.org/abs/1703.06870)
 
 
 
