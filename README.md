@@ -1,19 +1,63 @@
+# Notes from our Adv CL Tutorial Session: 
+09/11/2019 - Fritz, David, Monique & Kat.<br>
+09/12/2019 - Updated by Kat, Fritz & David.
 
-# OpenVINO Advanced Custom Layer Tutorial
+## What needs to happen to this file:
+- Add Downloading and installing OpenVINO:  **DONE**
+- Add other pertinent Intro level content - refer to previous tutorial:  **DONE**
+- Find a spot for making an update and changing a parameter
+- Find non-blurry ArgMax image
+- Possible other customizable aspect for the reader?
+- Verified for all 2019 versions of OV?  **No, only R2 on Ubuntu 16.04.  Other testing required for further verification.**
+- If R4 is going to be officially supported with Ubuntu 18.04, we'll need to verify independently?
 
-This is an advanced tutorial that teaches how to use custom layers in OpenVINO.
+Also, David will add the nearly completed sections from David's notes: 
+- edit the "front" template files
+- Edit the "ops" template files
 
-The earlier tutorial demonstrated the process of converting and running customer 
-layers in the OpenVINO Inference Engine, but used a simple hyperbolic cosine function  
-as the custom layer.  The cosh algorithm was chosen for simplicity of conversion, and didn't
-require additional parameters to be provided to the Model Optimizer.
+Not yet written, but David believes it's relatively easy and straightforward;
+- Compile a C++
+- Run the sample code
 
-This tutorial walks through using a practical real-world example: the argmax function. 
+Unsure of work involved:
+- Convert and Optimize an Instance Segmentation....
 
+**END SESSION NOTES**
+
+# OpenVINO 2019 R2.0 Custom Layer Implementation Tutorial for Linux - Advanced* 
+**Note:** This tutorial has been tested and confirmed on Ubuntu 16.04 LTS using the Intel® Distribution of OpenVINO™ toolkit 2019 R2.0.  Using this tutorial with any other versions may not work correctly.
+
+# Introduction
+
+This advanced tutorial outlines the steps for implementing custom layers and provides examples using the Intel® Distribution of OpenVINO™ toolkit.  It assumes you have a basic working knowledge of custom layer implementation for OpenVINO. The **OpenVINO 2019 R2.0 Custom Layer Implementation Tutorial for Linux*** demonstrates the process of converting and running customer layers in the OpenVINO Inference Engine, using a simple hyperbolic cosine function as the custom layer. The cosh algorithm was chosen for simplicity of conversion, and didn't require additional parameters to be provided to the Model Optimizer.  
+
+This more advanced tutorial demonstrates custom layer implementation using a practical real-world example: The argmax function will be used to illustrate:
+
+- Setting up the environment
+- Setting up and installing prerequisites
+- Generating the Extension Template Files Using the Model Extension Generator 
+- Editing the "front" template files so the Model Optimizer will know how to extract *argmax* attributes 
+- Editing the "ops" template files so Inference Engine will recognize the output shape of the *argmax* layer during inference 
+- Compiling a C++ library for the Inference Engine to use for calculating the *argmax* values
+- Converting and Optimizing an Instance Segmentation Neural Network (NN) Topology 
+- Implementing the Inference Engine extension for the example model to run on CPU and GPU 
+
+Currently, this tutorial and the Model Extension Generator tool support creating custom layers for CPU and GPU devices.  Support for the Myriad (VPU) will be available by the end of 2019. Support for other devices is yet to be announced.
+
+# Before You Start
+
+## Installation of the Intel® Distribution of OpenVINO™ toolkit 2019 R2.0 for Linux* 
+
+This tutorial assumes that you have already installed the [Intel® Distribution of OpenVINO™ toolkit 2019 R2.0 for Linux*](https://software.intel.com/openvino-toolkit/choose-download/free-download-linux) into the default */opt/intel/openvino* directory.  If you have installed the toolkit to a different directory, you will need to change the directory paths that include "*/opt/intel/openvino*" in the commands below to point to your installation directory. 
+
+The Intel® Distribution of OpenVINO™ toolkit includes the [Model Optimizer](https://docs.openvinotoolkit.org/2019_R2/_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html).  This tutorial uses a TensorFlow framework model and assumes that you have already configured the Model Optimizer for use with TensorFlow.  If you did not, be sure to follow the steps for [Configuring the Model Optimizer](https://docs.openvinotoolkit.org/2019_R2/_docs_MO_DG_prepare_model_Config_Model_Optimizer.html) before proceeding.
+
+After installing the Intel® Distribution of OpenVINO™ toolkit, the *classification_sample_async* executable binary will be located in the directory *~/inference_engine_samples_build/intel64/Release*.  This tutorial will use the *classification_sample_async* executable to run the example model.
 
 ## Directory Layout  
 Model Optimizer Custom Layer Extensions are located in this directory tree:
-  /opt/intel/openvino/deployment_tools/model_optimizer/extensions/
+
+  `/opt/intel/openvino/deployment_tools/model_optimizer/extensions/`
 
 
 There are 2 subdirectories:
@@ -97,8 +141,6 @@ We'll download a segmentation model, then later we'll convert the model to an In
 
 # Creating the *argmax* Custom Layer
 
-
-
 ## Generate the Extension Template Files Using the Model Extension Generator
 
 We will use the Model Extension Generator tool to automatically create templates for all the extensions that will be needed by the Model Optimizer to convert and the Inference Engine to execute the custom layer.  The extension template files will be partially replaced by Python and C++ code to implement the functionality of *argmax* as needed by the different tools.  To create the four extensions for the *argmax* custom layer, we run the Model Extension Generator with the following options:
@@ -152,7 +194,7 @@ Do you want to change any answer (y/n) ? Default 'no'
 ## Run the sample code
  
 
-# Reference
+# References
 
 [Custom Layers in the Model Optimizer](https://docs.openvinotoolkit.org/latest/_docs_MO_DG_prepare_model_customize_model_optimizer_Customize_Model_Optimizer.html)
 
