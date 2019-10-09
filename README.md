@@ -246,7 +246,7 @@ Do you want to change any answer (y/n) ? Default 'no'
 
 At the end of the file, add the following code:
 
-<detail>
+<details>
     @staticmethod
     def argmax_infer(node: Node):
         shape = node.in_node(0).shape
@@ -282,7 +282,7 @@ At the end of the file, add the following code:
 
         node.out_node().shape = out_shape
 
-</detail>
+</details>
 
 
 ## Compile a C++ library for IE to use for calculating the *argmax* values
