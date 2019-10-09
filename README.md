@@ -297,9 +297,13 @@ Do you want to change any answer (y/n) ? Default 'no'
 ## Compile a C++ library for IE to use for calculating the *argmax* values
 
   `cd ~/cl_adv_tutorial/argmax/user_ie_extensions/cpu/`
+  
   `mkdir build`
+  
   `cd build`
+  
   `cmake ..`
+  
   `make -j $(nproc)`
 
 NOTE: The `-j $(nproc)` above is optional.  It's used to speed up compilation.
