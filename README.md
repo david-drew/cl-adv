@@ -242,11 +242,13 @@ Do you want to change any answer (y/n) ? Default 'no'
 * The "front" template file does not require changes.
   `argmax/user_mo_extensions/front/tf/argmax_ext.py`
 
-* Edit the "ops" template files so IE will know the output shape of the *argmax* layer during inference 
+* Edit the "ops" template files so IE will know the output shape of the *argmax* layer after inference.
+  `argmax/user_mo_extensions/ops/argmax.py`
 
-At the end of the file, add the following code:
+  At the end of the file, add the following code:
 
 <details>
+    `
     @staticmethod
     def argmax_infer(node: Node):
         shape = node.in_node(0).shape
@@ -280,7 +282,7 @@ At the end of the file, add the following code:
             if node.out_max_val:
                 out_shape[1] = 2
 
-        node.out_node().shape = out_shape
+        node.out_node().shape = out_shape`
 
 </details>
 
