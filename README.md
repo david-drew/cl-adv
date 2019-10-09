@@ -196,6 +196,33 @@ Does your operation change shape? (y/n)    n
 
 Do you want to change any answer (y/n) ? Default 'no'
 [n]
+
+Supported cpu types: int, float, bool, string, listfloat, listint
+Parameters included in IR: out_max_val, top_k, axis, 
+
+Enter 'q' when finished:    
+[int]
+[q]
+
+Enter type and default value for parameters that will be read in IR in format
+  <param1> <type> <default_value>
+  <param2> <type> <default_value>
+  ...
+Example:
+  length int 0
+
+Parameters included in IR: out_max_val, top_k, axis, 
+
+Enter 'q' when finished:    
+[out_max_val int 0]
+[top_k int 1]
+[axis int 0]
+[q]
+
+Do you want to change any answer (y/n) ? Default 'no' 
+[n]
+
+
 ```
 
 ## Edit the "front" template files so MO will know how to extract *argmax* attributes 
