@@ -126,19 +126,19 @@ The first things we need to do are to create a place for the tutorial and then d
     From here, we will now use "$CLWS" to reference the "cl_tutorial" workspace directory and "$CLT" to reference the directory containing the files for this tutorial.
     ```
 
-## Download the Example Segmentation Model:
+## Download the MobileNet Model:
 
-We'll download a segmentation model, then later we'll convert the model to an Intel-compatible format.
+We'll download a mobilenet model that uses the argmax layer.  We'll convert the model to an Intel-compatible format later.
 
    ```bash
-    mkdir $CLWS/maskrcnn
-    cd $CLWS/maskrcnn
-    https://github.com/matterport/Mask_RCNN/releases
-    wget https://github.com/matterport/Mask_RCNN/releases/download/v2.1/balloon_dataset.zip
-    wget https://github.com/matterport/Mask_RCNN/releases/download/v2.1/mask_rcnn_balloon.h5
-    wget https://github.com/matterport/Mask_RCNN/archive/v2.1.tar.gz
-
+    mkdir $CLWS/tmp
+    cd $OV_PATH/deployment_tools/tools/model_downloader
+    ./downloader.py --name ssd_mobilenet_v2_coco -o $CLWS/tmp
+    mv $CLWS/tmp/object_detection/common/ssd_mobilenet_v2_coco/tf/ssd_mobilenet_v2_coco_2018_03_29 $CLWS/mobilenet
+    cd $CLWS/mobilenet
    ```
+
+NOTE: We move the tmp mobilenet files to a final location to simplify the deeply nested path structure.
 
 # Source Code Comparison
 The argmax function is already supported by OpenVINO.  This provides an opportunity to compare our work to the official implementation.
