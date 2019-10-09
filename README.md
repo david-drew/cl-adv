@@ -301,7 +301,76 @@ Do you want to change any answer (y/n) ? Default 'no'
 
 
 ## Run the sample code
- 
+
+### Using a C++ Sample
+
+First, we will try running the C++ sample without including the *cosh* extension library to see the error describing the unsupported *cosh* operation using the command:  
+
+```bash
+~/inference_engine_samples_build/intel64/Release/classification_sample_async -i $CLT/../pics/dog.bmp -m $CLWS/tf_model/model.ckpt.xml -d CPU
+```
+
+The error output will be similar to:
+
+```
+[ ERROR ] Unsupported primitive of type: cosh name: ModCosh/cosh/Cosh
+```
+
+We will now run the command again, this time with the *cosh* extension library specified using the "*-l $CLWS/cl_cosh/user_ie_extensions/cpu/build/libcosh_cpu_extension.so*" option in the command:
+
+```bash
+~/inference_engine_samples_build/intel64/Release/classification_sample_async -i $CLT/../pics/dog.bmp -m $CLWS/tf_model/model.ckpt.xml -d CPU -l $CLWS/cl_cosh/user_ie_extensions/cpu/build/libcosh_cpu_extension.so
+```
+
+The output will appear similar to:
+
+```
+Image /home/<user>/cl_tutorial/OpenVINO-Custom-Layers/pics/dog.bmp
+
+classid probability
+------- -----------
+0       0.9308984  
+1       0.0691015
+
+total inference time: xx.xxxxxxx
+Average running time of one iteration: xx.xxxxxxx ms
+    
+Throughput: xx.xxxxxxx FPS
+    
+[ INFO ] Execution successful
+```
+
+### Using a Python Sample
+
+First, we will try running the Python sample without including the *cosh* extension library to see the error describing the unsupported *cosh* operation using the command:  
+
+```bash
+python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample_async/classification_sample_async.py -i $CLT/../pics/dog.bmp -m $CLWS/cl_ext_cosh/model.ckpt.xml -d CPU
+```
+The error output will be similar to:
+```
+[ INFO ] Loading network files:
+           /home/<user>/cl_tutorial/tf_model/model.ckpt.xml
+           /home/<user>/cl_tutorial/tf_model/model.ckpt.bin
+[ ERROR ] Following layers are not supported by the plugin for specified device CPU:
+    ModCosh/cosh/Cosh, ModCosh/cosh_1/Cosh, ModCosh/cosh_2/Cosh
+[ ERROR ] Please try to specify cpu extensions library path in sample's command line parameters using -l or --cpu_extension command line argument
+```
+We will now run the command again, this time with the *cosh* extension library specified using the "*-l $CLWS/cl_cosh/user_ie_extensions/cpu/build/libcosh_cpu_extension.so*" option in the command:
+```bash
+python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_samples/classification_sample_async/classification_sample_async.py -i $CLT/../pics/dog.bmp -m $CLWS/cl_ext_cosh/model.ckpt.xml -l $CLWS/cl_cosh/user_ie_extensions/cpu/build/libcosh_cpu_extension.so -d CPU
+```
+
+The output will appear similar to:
+```
+Image /home/<user>/cl_tutorial/OpenVINO-Custom-Layers/pics/dog.bmp
+
+classid probability
+------- -----------
+   0      0.9308984
+   1      0.0691015
+```
+
 
 # References
 
