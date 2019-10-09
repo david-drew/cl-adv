@@ -311,6 +311,10 @@ NOTE: The `-j $(nproc)` above is optional.  It's used to speed up compilation.
 
 ## Convert and Optimize a MobileNet NN Topology
 
+  ```
+  cd $CLWS/mobilenet
+  mo_tf.py --input_meta_graph model.ckpt.meta --batch 1 --output "argmax" --extensions $CLWS/argmax/user_mo_extensions --output_dir /home/david/cl_adv_tutorial/mobilenet/
+  ```
 
 ## Run the sample code
 
