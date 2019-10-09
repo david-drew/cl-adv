@@ -254,6 +254,7 @@ Do you want to change any answer (y/n) ? Default 'no'
 
 <details>
 ```
+  
     @staticmethod
     def argmax_infer(node: Node):
         shape = node.in_node(0).shape
