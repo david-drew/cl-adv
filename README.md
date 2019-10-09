@@ -140,6 +140,18 @@ We'll download a segmentation model, then later we'll convert the model to an In
 
    ```
 
+# Source Code Comparison
+The argmax function is already supported by OpenVINO.  This provides an opportunity to compare our work to the official implementation.
+
+If you get stuck, or are curious, these are the files used by OpenVINO for argmax.  (We're focusing on TensorFlow, so we exclude two front files, related to Caffe and ONNX.)
+
+There are the five files of interest:
+
+$OV_PATH/deployment_tools/inference_engine/include/builders/ie_argmax_layer.hpp
+$OV_PATH/deployment_tools/inference_engine/src/extension/ext_argmax.cpp
+$OV_PATH/deployment_tools/model_optimizer/extensions/front/tf/argmax_ext.py
+$OV_PATH/deployment_tools/model_optimizer/extensions/ops/argmax.py
+
 # Creating the *argmax* Custom Layer
 
 ## Generate the Extension Template Files Using the Model Extension Generator
