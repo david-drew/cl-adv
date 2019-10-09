@@ -327,13 +327,13 @@ The error output will be similar to:
 We will now run the command again, this time with the *argmax* extension library specified using the "*-l $CLWS/argmax/user_ie_extensions/cpu/build/libargmax_cpu_extension.so*" option in the command:
 
 ```bash
-~/inference_engine_samples_build/intel64/Release/classification_sample_async -i $CLT/../pics/dog.bmp -m $CLWS/mobilenet/model.ckpt.xml -d CPU -l $CLWS/cl_cosh/user_ie_extensions/cpu/build/libargmax_cpu_extension.so
+~/inference_engine_samples_build/intel64/Release/classification_sample_async -i $CLT/../pics/dog.bmp -m $CLWS/mobilenet/model.ckpt.xml -d CPU -l $CLWS/argmax/user_ie_extensions/cpu/build/libargmax_cpu_extension.so
 ```
 
 The output will appear similar to:
 
 ```
-Image /home/<user>/cl_tutorial/OpenVINO-Custom-Layers/pics/dog.bmp
+Image /home/<user>/cl_adv_tutorial/OpenVINO-Custom-Layers/pics/dog.bmp
 
 classid probability
 ------- -----------
@@ -358,8 +358,8 @@ python3 /opt/intel/openvino/deployment_tools/inference_engine/samples/python_sam
 The error output will be similar to:
 ```
 [ INFO ] Loading network files:
-           /home/<user>/cl_tutorial/tf_model/model.ckpt.xml
-           /home/<user>/cl_tutorial/tf_model/model.ckpt.bin
+           /home/<user>/cl_adv_tutorial/mobilenet/model.ckpt.xml
+           /home/<user>/cl_adv_tutorial/mobilenet/model.ckpt.bin
 [ ERROR ] Following layers are not supported by the plugin for specified device CPU:
     ArgMax/argmax/argmax, ModArgMax/argmax/argmax, ModArgMax/argmax/argmax
 [ ERROR ] Please try to specify cpu extensions library path in sample's command line parameters using -l or --cpu_extension command line argument
