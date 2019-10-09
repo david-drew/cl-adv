@@ -1,6 +1,7 @@
 # Notes from our Adv CL Tutorial Session: 
 09/11/2019 - Fritz, David, Monique & Kat.<br>
 09/12/2019 - Updated by Kat, Fritz & David.
+10/08/2019 - Many updates from David.
 
 ## What needs to happen to this file:
 - Add Downloading and installing OpenVINO:  **DONE**
@@ -16,7 +17,7 @@ Also, David will add the nearly completed sections from David's notes:
 - Edit the "ops" template files
 
 Not yet written, but David believes it's relatively easy and straightforward;
-- Compile a C++
+- Compile C++ code
 - Run the sample code
 
 Unsure of work involved:
@@ -110,8 +111,8 @@ The first things we need to do are to create a place for the tutorial and then d
 1. Create the "cl_tutorial" top directory in the user's home directory and then change into it:
     ```bash
     cd ~
-    mkdir cl_tutorial
-    cd cl_tutorial
+    mkdir cl_adv_tutorial
+    cd cl_adv_tutorial
     ```
 2. Download the tutorial by cloning the repository:
     ```bash
@@ -177,6 +178,21 @@ Does your operation change shape? (y/n)
 [y]
 
 ## INCOMPLETE ##
+
+Do you want to change any answer (y/n) ? Default 'no'
+[n]
+
+Input all attributes that should be output in IR or needed for shape calculation in format:
+[out_max_val]
+[top_k]
+[axis]
+[q]
+
+Input all internal operation attributes, which will be omitted in IR, in format:
+[q]
+
+Does your operation change shape? (y/n)    n
+[n]
 
 Do you want to change any answer (y/n) ? Default 'no'
 [n]
