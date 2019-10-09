@@ -289,13 +289,15 @@ Do you want to change any answer (y/n) ? Default 'no'
                 out_shape[1] = 2
 
         node.out_node().shape = out_shape
-```
+        
+
 </details>
 
 
 ## Compile a C++ library for IE to use for calculating the *argmax* values
 
-## Convert and Optimize an Instance Segmentation NN Topology
+
+## Convert and Optimize a MobileNet NN Topology
 
 
 ## Run the sample code
