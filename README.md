@@ -121,7 +121,8 @@ The first things we need to do are to create a place for the tutorial and then d
 3. Create some environment variables as shorter, more convenient names to the directories that will be used often:
     ```bash
     export CLWS=~/cl_adv_tutorial
-    export CLT=$CLWS/2019.r1.1
+    export CLT=$CLWS/2019.r3.0
+    export OV_PATH=/opt/intel/openvino
 
     From here, we will now use "$CLWS" to reference the "cl_tutorial" workspace directory and "$CLT" to reference the directory containing the files for this tutorial.
     ```
