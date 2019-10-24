@@ -136,6 +136,7 @@ We'll download a mobilenet model that uses the argmax layer.  We'll convert the 
     cd $OV_PATH/deployment_tools/tools/model_downloader
     ./downloader.py --name ssd_mobilenet_v2_coco -o $CLWS/tmp
     mv $CLWS/tmp/object_detection/common/ssd_mobilenet_v2_coco/tf/ssd_mobilenet_v2_coco_2018_03_29 $CLWS/mobilenet
+    mv $CLWS/tmp/public/ssd_mobilenet_v2_coco/ssd_mobilenet_v2_coco_2018_03_29/* $CLWS/mobilenet
     cd $CLWS/mobilenet
    ```
 
