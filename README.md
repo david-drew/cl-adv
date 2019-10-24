@@ -190,11 +190,6 @@ Do you want to change any answer (y/n) ? Default 'no'
 Do you want to use the layer name as the operation name? (y/n)
 [y]
 
-Does your operation change shape? (y/n)
-[y]
-
-## INCOMPLETE ##
-
 Do you want to change any answer (y/n) ? Default 'no'
 [n]
 
@@ -204,21 +199,27 @@ Input all attributes that should be output in IR or needed for shape calculation
 [axis]
 [q]
 
-Input all internal operation attributes, which will be omitted in IR, in format:
-[q]
+Does your operation change shape? (y/n)
+[y]
 
-Does your operation change shape? (y/n)    n
-[n]
+Do you want to implement shape calculation? (y/n)
+    If you choose 'n', framework fallback will be used for shape calculation
+[y]
 
 Do you want to change any answer (y/n) ? Default 'no'
 [n]
 
-Supported cpu types: int, float, bool, string, listfloat, listint
-Parameters included in IR: out_max_val, top_k, axis, 
+Input all internal operation attributes, which will be omitted in IR, in format:
+  <param1> <type>
+  <param2> <type>
 
-Enter 'q' when finished:    
-[int]
+[out_max_val]
+[top_k]
+[axis]
 [q]
+
+Do you want to change any answer (y/n) ? Default 'no'
+[n]
 
 Enter type and default value for parameters that will be read in IR in format
   <param1> <type> <default_value>
